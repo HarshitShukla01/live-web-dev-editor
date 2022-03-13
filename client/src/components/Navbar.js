@@ -32,6 +32,7 @@ const Navbar = () => {
 
     return (
         <>
+        <div style={{height:"6vh", backgroundColor:"lightgreen"}}>
           <Link to="/" exact="true"> 
              <span className='navbar_link_span'>Home</span> &nbsp;&nbsp;
           </Link>
@@ -49,7 +50,8 @@ const Navbar = () => {
           </Link>:null}
           {chkStatus ?<Link to="/" exact="true">  
              <span className='navbar_link_span' onClick={logoutFunc}>Logout</span> &nbsp;&nbsp;
-          </Link>:null}  
+          </Link>:null} 
+        </div> 
         </>
     )
 }
