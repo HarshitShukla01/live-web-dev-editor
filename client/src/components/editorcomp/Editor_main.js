@@ -19,12 +19,13 @@ const Editor_main = () => {
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Document</title>
+          <style>${css}</style>
       </head>
       <body>${html}</body>
-      <style>${css}</style>
       <script>${js}</script>
       </html>
       `)
+    
     }, 450)
 
     return () => clearTimeout(timeout)
@@ -39,6 +40,7 @@ return (
   </div>
   <div className="editor_pane">
     <iframe
+      id="editor_iframe"
       srcDoc={srcDoc}
       title="output"
       sandbox="allow-scripts"

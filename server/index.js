@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const USER = require("./models/userModel");
+const CODEDATA = require("./models/dataModel");
 const jwt = require("jsonwebtoken");
 const { eventNames } = require("./models/userModel");
 require('dotenv').config()
@@ -37,7 +38,8 @@ app.post("/api/register", async (req, res) => {
       name: req.body.userName,
       email: req.body.userEmail,
       password: req.body.userPassword,
-      product: req.body.userName,
+      filename: req.body.userName,
+      uniqueid: req.body.userEmail
     });
     res.json({ status: "ok" });
   } catch (e) {
@@ -66,18 +68,15 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-app.get("/api/product", async (req, res) => {
+app.get("/api/profile", async (req, res) => {
   const token = req.headers["x-access-token"];
 
   try {
-    // console.log("working fine")
     const decoded = jwt.verify(token, "123qwewqe");
     const emailID = decoded.email;
     const user = await USER.findOne({ email: emailID });
-    // console.log(user)
-    return res.json({ status: "ok", product: user.product });
+    return res.json({ status: "ok", filename: user.filename, uniqueid:user.uniqueid });
   } catch (err) {
-    // console.log(err.message)
     res.json({ status: "error", error: "invalid Token" });
   }
 });
@@ -94,6 +93,61 @@ app.get("/api/authchk", async (req, res) => {
     res.json({ status: "error" });
   }
 });
+
+
+
+
+app.post("/api/filldata", async (req, res) => {
+  try {
+    
+    await CODEDATA.create({
+      uniqueid: req.body.uniqueid,
+      name: req.body.projname,
+      htmlfile: req.body.htmlfile,
+      cssfile: req.body.cssfile,
+      jsfile: req.body.jsfile,
+    });
+    res.json({ status: "ok" });
+  } catch (e) {
+    res.json({ status: e.message });
+  }
+})
+
+app.get("/api/totaldata", async (req, res) => {
+  const token = req.headers["x-access-token"];
+  try {
+    const totaldata = await CODEDATA.find({uniqueid : token});
+    return res.json({ status: "ok" ,totaldata: totaldata});
+  } catch (err) {
+    res.json({ status: "error" });
+  }
+});
+
+app.get("/api/uniquedata", async (req, res) => {
+  const uniqueid = req.headers["x-access-token"];
+  const projname = req.headers["projname"];
+  try {
+    const totaldata = await CODEDATA.find({uniqueid : uniqueid, name : projname});
+    return res.json({ status: "ok" ,totaldata: totaldata});
+  } catch (err) {
+    res.json({ status: "error" });
+  }
+});
+
+app.post("/api/deletedataval", async (req, res) => {
+  
+  try {
+    await CODEDATA.deleteOne({
+      uniqueid : req.body.uniqueid, 
+      name : req.body.projname
+    });
+     res.json({ status: "ok" });
+  } 
+  catch (e) {
+     res.json({ status: e.message });
+  }
+});
+
 
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {

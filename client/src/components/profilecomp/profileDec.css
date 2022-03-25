@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+
+
+.proflie_Class{
+    height: 93vh;
+    position: absolute;
+    width: 100vw;
+    z-index: -1000000;
+    opacity: 0.3;
+
+    
+}
+
+/********************* PROJECTS ********************/
+.profile_projects_heading{
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Crete Round', serif;
+    font-size: 40px;
+    color: #2f2f2f;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+
+@media(max-width: 768px){
+    .profile_projects_heading{
+        font-size: 30px;
+    }
+}
+
+.profile_tile_main_paper{
+    display: flex;
+    justify-content: center;
+}
+
+.profile_tile_main_div{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-evenly;
+    font-family: 'Merriweather', serif;
+}
+.profile_tile_main_div_h3{
+    width: 70%;
+}
+
+.profile_tile_main_div__all_btn_div{
+   display: flex;
+}
+
+
+.profile_tile_main_div_btn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/********************* PROFILE ********************/
+
+.profile_data_main_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile_data_div_paper{
+    /* width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: aquamarine !important; */
+    box-shadow: 3px 6px 8px 0px #000000b5 !important;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #c0ffea !important;
+    border-radius: 20px !important;
+}
+
+@media (max-width: 768px){
+    .profile_data_div_paper{
+        width: 80%;
+    }
+}
+
+.profile_data_div_paper_photo{
+    margin-top: 20px;
+    width: 50%;
+    border-radius: 10px !important;
+    background-color: transparent !important;
+    margin-bottom: 30px;
+}
+
+.profile_data_div_paper_photo_img{
+    width: 100%;
+    border-radius: 10px !important;
+}
+
+.profile_data_div_paper_grid{
+    margin-top: -20px  !important;
+}
+
+.profile_data_div_paper_grid_h2{
+    font-family: 'Merriweather', serif;
+}
+
+.profile_data_div_paper_grid_icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
