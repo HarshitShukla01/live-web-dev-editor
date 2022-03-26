@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link} from "react-router-dom";
 import {user_login_check} from './helper'
 import { downloadInstantData } from './filehelp';
 import { saveInstantData } from './profilecomp/helperProj';
+import NavbarMenu from './navbarcomp/NavbarMenu';
 
 const Navbar = () => {
     
@@ -44,32 +44,12 @@ const Navbar = () => {
 
     return (
         <>
-        <div style={{height:"6vh", backgroundColor:"lightgreen"}}>
-          <Link to="/" exact="true"> 
-             <span className='navbar_link_span'>Home</span> &nbsp;&nbsp;
-          </Link>
-          {chkStatus ?<Link to="/profile" exact="true">
-             <span className='navbar_link_span'>Profile</span> &nbsp;&nbsp;
-          </Link>:null}
-          {chkStatus ?
-             <span className='navbar_link_span' onClick={dataDownload} >Download &nbsp;&nbsp; </span> 
-          :null}
-          {chkStatus ?
-             <span className='navbar_link_span' onClick={dataSave} >SAVE &nbsp;&nbsp; </span> 
-          :null}
-          {chkStatus ?<Link to="/editor" exact="true">
-             <span className='navbar_link_span'>Editor</span> &nbsp;&nbsp;
-          </Link>:null}
-          {!chkStatus ?<Link to="/login" exact="true">
-             <span className='navbar_link_spans'>Login</span> &nbsp;&nbsp;
-           </Link>:null}
-           {!chkStatus ? <Link to="/signup" exact="true"> 
-             <span className='navbar_link_span'>Signup</span> &nbsp;&nbsp;
-          </Link>:null}
-          {chkStatus ?<Link to="/" exact="true">  
-             <span className='navbar_link_span' onClick={logoutFunc}>Logout</span> &nbsp;&nbsp;
-          </Link>:null} 
-        </div> 
+        <NavbarMenu
+                dataDownload={dataDownload} 
+                dataSave={dataSave} 
+                logoutFunc={logoutFunc} 
+                chkStatus={chkStatus}
+              />  
         </>
     )
 }
