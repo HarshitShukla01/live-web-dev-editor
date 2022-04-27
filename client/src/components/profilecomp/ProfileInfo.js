@@ -3,10 +3,12 @@ import { Paper,Grid } from '@mui/material';
 import profilepic from './profilepic3.png'
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import EmailIcon from '@mui/icons-material/Email';
+import BackgroundPage from './BackgroundPage';
 
 const ProfileInfo = ({profileName,uniqueid}) => {
   return (
     <> 
+      <BackgroundPage/>
      <div>
       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
       <h1 className="profile_projects_heading">&nbsp;PROFILE&nbsp;</h1>

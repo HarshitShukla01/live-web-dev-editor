@@ -39,17 +39,18 @@ const Profile = () => {
     },[])
   
     return <>
-   <div className="proflie_Class"></div>
-    <Grid container spacing={2} >
-      <Grid item xs={12} md={6}>
-        <ProfileInfo profileName={profileName} uniqueid={uniqueid}/>
+     
+      <div className="proflie_Class"></div>
+      <Grid container spacing={2} >
+        <Grid item xs={12} md={6}>
+          <ProfileInfo profileName={profileName} uniqueid={uniqueid}/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ListProject uniqueid={uniqueid}/>
+        </Grid>
       </Grid>
-      <Grid item xs={12} md={6}>
-        <ListProject uniqueid={uniqueid}/>
-      </Grid>
-    </Grid>
-    
-    </>;
+      
+    </>
   };
   
 export default Profile;

@@ -22,7 +22,8 @@ const Navbar = () => {
       downloadInstantData()
     }
     const dataSave = () =>{
-      saveInstantData("goodproj1")
+      let projectName = window.prompt("Enter project name", "Project Name");
+      saveInstantData(projectName)
     }
 
 

@@ -1,4 +1,5 @@
-const URLINK = 'http://localhost:8081'
+// const URLINK = 'http://localhost:8081'
+const URLINK = "https://onlinewebdeveditor.herokuapp.com";
 
 
 export const getAllProjDetail = async (uniqueid) =>{
@@ -62,10 +63,12 @@ export const saveInstantData = (projname) =>{
     const js1 = localStorage.getItem('codepen-clone-js');
     const uniqueid = localStorage.getItem('uniqueidval');
 
-    const html = JSON.parse(html1);
-    const css = JSON.parse(css1);
+    let html = JSON.parse(html1);
+    let css = JSON.parse(css1);
     let js = JSON.parse(js1);
     if(!js) js="//no js content";
+    if(!css) css="/*no css content*/";
+    if(!html) html="<!--no html content-->";
 
     save_proj_func(uniqueid,projname,html,css,js);
 }
