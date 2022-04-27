@@ -1,8 +1,8 @@
 import React from 'react'
-
+import Editor_main from './editorcomp/Editor_main'
 const Editor = () => {
   return (
-    <div><h1>Editor</h1></div>
+    <div><Editor_main/></div>
   )
 }
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link} from "react-router-dom";
 import {user_login_check} from './helper'
+import { downloadInstantData } from './filehelp';
+import { saveInstantData } from './profilecomp/helperProj';
+import NavbarMenu from './navbarcomp/NavbarMenu';
 
 const Navbar = () => {
     
@@ -8,10 +10,21 @@ const Navbar = () => {
     const [onLogout,setOnLogout] = useState(false);
 
     const logoutFunc = () =>{
+      localStorage.removeItem('codepen-clone-html');
+      localStorage.removeItem('codepen-clone-css');
+      localStorage.removeItem('codepen-clone-js');
+      localStorage.removeItem('uniqueidval');
       localStorage.removeItem('token');
       setOnLogout(p =>!p)
     }
-
+    
+    const dataDownload = () =>{
+      downloadInstantData()
+    }
+    const dataSave = () =>{
+      let projectName = window.prompt("Enter project name", "Project Name");
+      saveInstantData(projectName)
+    }
 
 
     useEffect(()=>{
@@ -32,24 +45,12 @@ const Navbar = () => {
 
     return (
         <>
-          <Link to="/" exact="true"> 
-             <span className='navbar_link_span'>Home</span> &nbsp;&nbsp;
-          </Link>
-          {chkStatus ?<Link to="/profile" exact="true">
-             <span className='navbar_link_span'>Profile</span> &nbsp;&nbsp;
-          </Link>:null}
-          {chkStatus ?<Link to="/editor" exact="true">
-             <span className='navbar_link_span'>Editor</span> &nbsp;&nbsp;
-          </Link>:null}
-          {!chkStatus ?<Link to="/login" exact="true">
-             <span className='navbar_link_spans'>Login</span> &nbsp;&nbsp;
-           </Link>:null}
-           {!chkStatus ? <Link to="/signup" exact="true"> 
-             <span className='navbar_link_span'>Signup</span> &nbsp;&nbsp;
-          </Link>:null}
-          {chkStatus ?<Link to="/" exact="true">  
-             <span className='navbar_link_span' onClick={logoutFunc}>Logout</span> &nbsp;&nbsp;
-          </Link>:null}  
+        <NavbarMenu
+                dataDownload={dataDownload} 
+                dataSave={dataSave} 
+                logoutFunc={logoutFunc} 
+                chkStatus={chkStatus}
+              />  
         </>
     )
 }
