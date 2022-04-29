@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {user_login_check,user_register_func} from './helper'
+import MainSignup from './signupcomp/MainSignup'
 
 const Signup = () => {
     const Navigate = useNavigate();
@@ -33,6 +34,25 @@ const Signup = () => {
       },[])
     return (
         <div>
+        <MainSignup 
+            nameField={nameField}
+            emailField={emailField}
+            passField={passField}
+            conPassField={conPassField}
+            setNameField={setNameField}
+            setEmailField={setEmailField}
+            setPassField={setPassField}
+            setConPassField={setConPassField}
+            registerUser={registerUser}
+         />
+         </div>
+    )
+}
+
+export default Signup
+
+/*
+     <div>
             <h1>Signup</h1>
             <form onSubmit={registerUser}>
              <input type="text" value={nameField} placeholder='Name' 
@@ -49,8 +69,6 @@ const Signup = () => {
              <br/><br/>
              <input type="Submit" value="Register" onChange={()=>{}}/>
             </form>
+            
         </div>
-    )
-}
-
-export default Signup
+*/
