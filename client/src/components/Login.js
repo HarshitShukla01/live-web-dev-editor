@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {user_login_func,user_login_check} from './helper'
-
+import LoginMain from './logincomp/LoginMain'
 
 const Login = () => {
     const Navigate = useNavigate();
@@ -37,7 +37,21 @@ const Login = () => {
 
 
     return (
-        <div>
+        <LoginMain 
+            loginUser={loginUser}
+            setEmailLogin={setEmailLogin}
+            setPassLogin={setPassLogin}
+            emailLogin={emailLogin}
+            passLogin={passLogin}
+        />
+       
+    )
+}
+
+export default Login
+
+ /* <div>
+            
             <h1>Login</h1>
             <form onSubmit={loginUser}>
              <input type="email" value={emailLogin} placeholder='Email' 
@@ -48,8 +62,4 @@ const Login = () => {
                 <br/><br/>
              <input type="Submit" value="Signin"/>
             </form>
-        </div>
-    )
-}
-
-export default Login
+        </div> */

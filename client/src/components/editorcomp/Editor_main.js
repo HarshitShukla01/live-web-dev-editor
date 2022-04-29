@@ -38,7 +38,7 @@ return (
     <EditorPlain language="css" displayName="CSS" value={css} onChange={setCss}/>
     <EditorPlain language="javascript" displayName="JS" value={js} onChange={setJs}/>
   </div>
-  <div className="editor_pane">
+  <div className="editor_pane" style={{backgroundColor:"white"}}>
     <iframe
       id="editor_iframe"
       srcDoc={srcDoc}
