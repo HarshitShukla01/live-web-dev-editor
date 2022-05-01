@@ -1,0 +1,251 @@
+
+/**-- heading section --**/
+
+
+/*---------------------------- preloader area ----------------------------*/
+
+.Home_main-layout {
+    background-repeat: no-repeat;
+    background: url(./images/body_bg.png);
+}
+
+/*-- header area --*/
+
+
+/*--------------------------------------------------------------------- top banner area ---------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------- layout new css ---------------------------------------------------------------------*/
+
+.Home_head_top {
+    background: url(./images/banner.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.Home_banner_main {
+    padding: 90px 0 190px 0;
+}
+
+.Home_text-bg {
+    text-align: left;
+    max-width: 561px;
+    width: 100%;
+    float: right;
+    padding-right: 141px;
+    /* padding-left: 50px; */
+}
+
+.Home_text-bg h1 {
+    color: #fff;
+    font-size: 48px;
+    line-height: 65px;
+    font-weight: bold;
+}
+
+.Home_text-bg p {
+    color: #fff;
+    font-size: 23px;
+    /* line-height: 28px; */
+     padding: 20px 0; 
+}
+
+.Home_text-bg a {
+    font-size: 17px;
+    background-color: #fff;
+    color: #0891f8;
+    padding: 13px 0px;
+    width: 100%;
+    max-width: 190px;
+    text-align: center;
+    display: inline-block;
+    transition: ease-in all 0.5s;
+    border-radius: 10px;
+}
+
+.Home_text-bg a:hover {
+    background-color: #000;
+    color: #fff;
+    transition: ease-in all 0.5s;
+    border-radius: 26px;
+}
+
+.Home_text-img {
+    padding-top: 100px;
+}
+
+.Home_text-img figure {
+    margin: 0px;
+}
+
+.Home_text-img figure img {
+    width: 100%;
+}
+
+.Home_titlepage {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.Home_titlepage h2 {
+    font-size: 40px;
+    color: #3e3e3e;
+    line-height: 35px;
+    font-weight: bold;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+.d_flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+/** business section **/
+
+.Home_business {
+    padding-top: 90px;
+}
+
+.Home_business .Home_titlepage span {
+    color: #0891f8;
+    font-size: 30px;
+    font-family: 'Baloo Chettan', cursive;
+    text-transform: uppercase;
+    line-height: 37px;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.Home_business .Home_titlepage h2 {
+    color: #272f43;
+    font-weight: normal;
+}
+
+.Home_business .Home_business_box {
+    text-align: center;
+}
+
+.Home_business .Home_business_box figure {
+    margin: 0;
+}
+
+.Home_business .Home_business_box figure img {
+    width: 100%;
+}
+
+.Home_business .Home_business_box p {
+    color: #000;
+    font-size: 17px;
+    line-height: 28px;
+    padding: 35px 0px;
+}
+
+
+
+/** end business section **/
+
+
+/** footer **/
+
+
+.Home_footer {
+    background: #fff;
+}
+
+
+ul.Home_social_icon {
+    text-align: center;
+}
+
+ul.Home_social_icon li {
+    display: inline-block;
+    margin: 0 3px;
+}
+
+ul.Home_social_icon li a {
+    background: #fff;
+    box-shadow: #ddd 0px 0px 10px 0px;
+    font-size: 22px;
+    padding-top: 5px;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    color: #008df3;
+}
+
+ul.Home_social_icon li a:hover {
+    background: #23262d;
+}
+
+.Home_copyright {
+    padding: 20px 0px;
+    background: #0891f8;
+    margin-top: 50px;
+    position: relative;
+}
+
+.Home_copyright::after {
+    content: "";
+    position: absolute;
+    bottom: 61px;
+    background: url(./images/bottom.png);
+    width: 290px;
+    height: 292px;
+    right: 0;
+}
+
+.Home_copyright p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.Home_copyright a {
+    color: #fff;
+}
+
+.Home_copyright a:hover {
+    color: #23262d;
+}
+
+
+/** end footer **/
+
+
+
+
+/**************************************************************************/
+
+ .Home_Banner_h1{
+    font-family: 'Baloo Chettan 2';
+    font-weight: 900 !important;
+    font-size: 55px !important;
+} 
+
+.Home_business_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Home_business_box_p{
+    text-align: center;
+    max-width: 70%;
+    font-family: 'Merriweather', serif;
+}
+
+.Home_copyright_p{
+    font-family: 'Crete Round', serif;
+
+}
+.Home_social_icon li{
+    margin-left: 30px !important;
+}
