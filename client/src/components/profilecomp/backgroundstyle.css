@@ -5,7 +5,12 @@
     height: 94vh;
     position: absolute;
     z-index: -40000;
-   
+}
+
+@media (max-width: 899.5px){
+    .profile_area{
+        height: 170%;
+    }
 }
 
 .profile_circles{

@@ -9,12 +9,14 @@ import Footer from './components/Footer';
 import Editor from './components/Editor';
 
 const App = () => {
+   const [userStatus, setUserStatus] = React.useState(false);
+   
   return (
     <div>
-      <Navbar />
+      <Navbar setUserStatus={setUserStatus}/>
       {/* <Navtemp /> */}
       <Routes>
-       <Route path="/" element={<Home/>} />
+       <Route path="/" element={<Home userStatus={userStatus}/>} />
        <Route path="/profile" element={<Profile/>} />
        <Route path="/login" element={<Login/>} />
        <Route path="/signup" element={<Signup/>} />

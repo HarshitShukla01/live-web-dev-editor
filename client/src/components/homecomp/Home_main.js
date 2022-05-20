@@ -10,7 +10,10 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Link } from 'react-router-dom'
 
-const Home_main = () => {
+const Home_main = ({userStatus}) => {
+
+   const chkStatus = userStatus;
+
   return (
 <div className="Home_main-layout">
   <header>
@@ -21,7 +24,7 @@ const Home_main = () => {
             <Container maxWidth="xs">
             <h1 className='Home_Banner_h1'>Live Web Development</h1>
             <p className='Home_Banner_p'>Made for Front end Designers and developers to build,design and test their code.</p>
-            <a href="#">Login</a>
+            {chkStatus ? null : <Link to="/login">Login</Link>}
             </Container>
           </div>
         </Grid>
@@ -65,9 +68,9 @@ const Home_main = () => {
                <div className="row">
                   <div className="col-md-12">
                      <ul className="Home_social_icon">
-                        <li><Link to="#"><FacebookIcon sx={{ fontSize: 30 ,marginTop: 1 }}/></Link></li>
-                        <li><Link to="#"><TwitterIcon sx={{ fontSize: 30 ,marginTop: 1 }}/></Link></li>
-                        <li><Link to="#"><LinkedInIcon sx={{ fontSize: 30 ,marginTop: 1 }}/></Link></li>
+                        <li><a href="https://www.facebook.com/" target="_blank"><FacebookIcon sx={{ fontSize: 30 ,marginTop: 1 }}/></a></li>
+                        <li><a href="https://twitter.com/" target="_blank"><TwitterIcon sx={{ fontSize: 30 ,marginTop: 1 }}/></a></li>
+                        <li><a href="https://linkedin.com" target="_blank"><LinkedInIcon sx={{ fontSize: 30 ,marginTop: 1 }}/></a></li>
                      </ul>
                   </div>
                </div>
