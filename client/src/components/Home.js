@@ -1,10 +1,10 @@
 import React from 'react'
 import Home_main from './homecomp/Home_main'
 
-const Home = () => {
+const Home = ({userStatus}) => {
     return (
     <>
-      <Home_main />
+      <Home_main userStatus={userStatus}/>
     </>
     )
 }

@@ -4,7 +4,7 @@ import { downloadInstantData } from './filehelp';
 import { saveInstantData } from './profilecomp/helperProj';
 import NavbarMenu from './navbarcomp/NavbarMenu';
 
-const Navbar = () => {
+const Navbar = ({setUserStatus}) => {
     
     const [chkStatus,setChkStatus] = useState(false);
     const [onLogout,setOnLogout] = useState(false);
@@ -15,6 +15,7 @@ const Navbar = () => {
       localStorage.removeItem('codepen-clone-js');
       localStorage.removeItem('uniqueidval');
       localStorage.removeItem('token');
+      setUserStatus(false);
       setOnLogout(p =>!p)
     }
     
@@ -25,16 +26,18 @@ const Navbar = () => {
       let projectName = window.prompt("Enter project name", "Project Name");
       saveInstantData(projectName)
     }
-
+    
 
     useEffect(()=>{
       const getAuthCheck = async (userToken)=>{
         const userData =  await user_login_check(userToken,"authchk")
         if(userData.status==='ok'){
          setChkStatus(true);
+         setUserStatus(true);
         }
         else{
          setChkStatus(false);
+         setUserStatus(false);
         }
   
       }
@@ -56,3 +59,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+// export {StatusVariable}

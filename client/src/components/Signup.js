@@ -10,14 +10,65 @@ const Signup = () => {
     const [emailField,setEmailField] = useState('');
     const [passField,setPassField] = useState('');
     const [conPassField,setConPassField] = useState('');
+
+    const validateEmail = (email) => {
+      return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+    };
     
-    const registerUser = async (e) =>{
-       e.preventDefault();
-       const userData = await user_register_func(nameField,emailField,passField);
+    const validatePassword = (password) => {
+      return password.match(
+         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+      );
+   };
+
+    const chkEmailVerfivcation = () => {
+         if(emailField.length > 0){
+            const c_valid_email = validateEmail(emailField);
+            if(c_valid_email) return true;
+            alert('Please enter valid email like "abc@def.xyz"');
+            return false;
+         }
+         return false;
+    }
+   
+    const chkPasswordVerfivcation = () => { 
+         if(passField.length > 0){           
+            const c_valid_pass = validatePassword(passField);
+            if(c_valid_pass) return true;
+            alert('Please enter valid password ,\nit must contain \n8 characters,\none uppercase , \none lowercase ,\none number and \none special character ');
+         }
+    }
+
+    const chkConfirmPasswordVerfivcation = () => { 
+         if(conPassField.length > 0 && passField.length > 0 && conPassField === passField){
+            return true;
+         }
+         // alert('Password and Confirm Password does not match');
+         return false;
+      }
+
+   const registerUserWithMail = async () =>{
+      const userData = await user_register_func(nameField,emailField,passField);
 
        if(userData.status === 'ok'){
+            alert('Registeration Successfully');
             Navigate('/login');
        }
+   }
+
+
+    const registerUser = (e) =>{
+      e.preventDefault();
+
+      const email_chk = chkEmailVerfivcation();
+      const pass_chk = chkPasswordVerfivcation();
+      const con_pass_chk = chkConfirmPasswordVerfivcation();
+       
+      if(email_chk && pass_chk && con_pass_chk){
+         registerUserWithMail();
+      }
     }
     
     useEffect(() =>{
